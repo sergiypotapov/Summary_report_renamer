@@ -3,6 +3,8 @@ import Get_hours_for_code
 
 def Run_Excel_changes():
     wb = openpyxl.load_workbook("Luxoft_Timesheet_27_2017_Denys_LebedevV70.xlsx", data_only=True)
+    report_month = '08'
+
     ws = wb.active
 
     read_code_letter = 'C'
@@ -20,7 +22,7 @@ def Run_Excel_changes():
 
         if project_code_value !=0:
             # Get hours for code
-            total_hours_per_code = Get_hours_for_code.get_hours_for_code(read_code_letter, read_code_digit, ws)
+            total_hours_per_code = Get_hours_for_code.get_hours_for_code(read_code_digit, ws, report_month)
 
             #put hours for
             read_code_digit = read_code_digit + 1
